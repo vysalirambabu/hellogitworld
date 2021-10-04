@@ -1,11 +1,12 @@
 import requests
 
 
-url = 'http://httpbin.org/status/200'
+url = 'https://github.com/'
 r = requests.get(url)
 
 if 'json' in r.headers.get('Content-Type'):
     js = r.json()
+elif 'text/html' in r.headers.get('Content-Type'):
+	print('Response is in text/html format')
 else:
-    print('Response content is not in JSON format.')
-    js = 'spam'
+    print('Response content is not in JSON format/spam content.')
